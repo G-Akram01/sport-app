@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 🏋️‍♂️ Test application Club de Sport  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Application web pour **la gestion des cours sportifs et des réservations**.  
+Ce projet a été développé dans le cadre d’un exercice Agile (Scrum) avec un MVP (Itération 1) permettant :  
+- Inscription / Connexion (utilisateur & coach)  
+- Création de créneaux par les coachs  
+- Consultation du planning des cours  
+- Réservation de séances par les utilisateurs  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Getting Started  
 
-### `npm start`
+### 📦 Prérequis  
+- [Node.js](https://nodejs.org/) (>= 16.x)  
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)  
+- (optionnel) [PostgreSQL](https://www.postgresql.org/) si vous voulez persister les données côté backend  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ▶️ Lancer le projet en mode développement  
 
-### `npm test`
+```bash
+npm install
+npm start
+```
+Ouvrir http://localhost:3000 dans votre navigateur.
+L’app se rechargera automatiquement si vous modifiez le code.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🧪 Lancer les tests
+```bash
+npm test
+```
 
-### `npm run build`
+Les tests s’exécutent en mode interactif (utile pour vérifier signup, login, réservation).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🏗️ Construire l’application pour la production
+npm run build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Les fichiers seront générés dans le dossier build/
 
-### `npm run eject`
+Code optimisé et minifié
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Prêt à être déployé (Netlify, Vercel, Heroku, etc.)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 📚 Fonctionnalités du MVP (Itération 1)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### ✅ Utilisateur
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Inscription (Signup)
 
-## Learn More
+Connexion sécurisée (Login JWT simulé)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Consulter le planning des cours
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Réserver une séance si places disponibles
 
-### Code Splitting
+Voir ses réservations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### ✅ Coach
 
-### Analyzing the Bundle Size
+Connexion (accès à l’espace Coach)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Créer / Supprimer des créneaux de cours
 
-### Making a Progressive Web App
+Voir l’état de remplissage de ses cours
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 📂 Structure du projet
+```
+/src
+ ├── App.js        # Composant principal (routing + navigation)
+ ├── components/   # Composants réutilisables (formulaires, cartes, boutons…)
+ ├── pages/        # Pages principales (Login, Signup, Planning, Coach…)
+ ├── services/     # (Optionnel) appels API backend
+```
+### 🔗 Backend (API REST) – MVP
 
-### Advanced Configuration
+Le backend est minimal et fournit :
+```
+POST /auth/signup – créer un compte
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+POST /auth/login – se connecter
 
-### Deployment
+POST /class-slots – créer un créneau (coach)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+GET /class-slots – consulter le planning
 
-### `npm run build` fails to minify
+POST /bookings – réserver un cours
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GET /bookings/me – mes réservations
+```
