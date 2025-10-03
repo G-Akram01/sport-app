@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Test application Club de Sport  
+# 🏋️‍♂️ Application Club de Sport - ResaFit 
 
 Application web pour **la gestion des cours sportifs et des réservations**.  
 Ce projet a été développé dans le cadre d’un exercice Agile (Scrum) avec un MVP (Itération 1) permettant :  
